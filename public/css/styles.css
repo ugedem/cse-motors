@@ -1,0 +1,78 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f8fafc;
+  color: #1f2937;
+}
+
+.site-header {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+nav {
+  background-color: #3b82f6;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  background-color: #2563eb;
+}
+
+main {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 768px) {
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    padding: 1rem 2rem;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
