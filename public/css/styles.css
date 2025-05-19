@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -5,6 +6,7 @@ body {
   line-height: 1.6;
   background-color: #f8fafc;
   color: #1f2937;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sr-only {
@@ -46,10 +48,18 @@ nav ul li a {
   padding: 1rem;
   display: block;
   font-weight: 600;
+  transition: background-color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
   background-color: #1e40af;
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+nav ul li a.active {
+  background-color: #1e3a8a;
 }
 
 main {
@@ -65,6 +75,93 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.inventory-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.inventory-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.inventory-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: crimson;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #2563eb;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #1e3a8a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover,
+form button:focus {
+  background-color: #1e40af;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
 footer {
   background-color: #1f2937;
   color: #f1f5f9;
@@ -73,6 +170,7 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Media query */
 @media screen and (min-width: 768px) {
   nav ul {
     flex-direction: row;
@@ -87,4 +185,57 @@ footer {
     max-width: 1000px;
     margin: 0 auto;
   }
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+body.dark .site-header,
+body.dark nav,
+body.dark footer {
+  background-color: #1f2937;
+}
+
+body.dark nav ul li a {
+  color: #f9fafb;
+}
+
+body.dark nav ul li a:hover {
+  background-color: #374151;
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #4b5563;
+}
+
+/* Toggle button */
+.dark-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #f1f5f9;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dark-toggle:hover {
+  transform: scale(1.05);
+}
+
+body.dark .dark-toggle {
+  background: #374151;
+  color: #f9fafb;
 }

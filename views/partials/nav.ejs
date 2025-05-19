@@ -1,8 +1,8 @@
 <nav role="navigation" aria-label="Main navigation">
   <ul>
-    <li><a href="/" aria-current="page">Home</a></li>
-    <li><a href="#">Inventory</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="/" aria-current="<%= title === 'CSE Motors' ? 'page' : null %>">Home</a></li>
+    <li><a href="/inventory" aria-current="<%= title.includes('Inventory') ? 'page' : null %>">Inventory</a></li>
+    <li><a href="/about" aria-current="<%= title.includes('About') ? 'page' : null %>">About</a></li>
+    <li><a href="/contact" aria-current="<%= title.includes('Contact') ? 'page' : null %>">Contact</a></li>
   </ul>
 </nav>

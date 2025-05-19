@@ -1,0 +1,19 @@
+<main>
+  <h1>Contact Us</h1>
+  <p style="font-size: 1.1rem; color: #374151; max-width: 700px; margin: 0 auto;">
+    Have a question, need assistance, or want to book a test drive? Fill out the form below and we'll get back to you shortly.
+  </p>
+
+  <form action="/thankyou" method="POST" style="margin-top: 2rem;">
+    <label for="name">Name <span class="sr-only">(required)</span></label>
+    <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name">
+
+    <label for="email">Email <span class="sr-only">(required)</span></label>
+    <input type="email" id="email" name="email" required aria-required="true" placeholder="your@email.com">
+
+    <label for="message">Message <span class="sr-only">(required)</span></label>
+    <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="How can we help you?"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</main>
