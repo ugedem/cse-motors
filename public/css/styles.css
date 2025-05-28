@@ -1,11 +1,37 @@
+:root {
+  --bg: #f8fafc;
+  --text: #1f2937;
+  --primary: #1e3a8a;
+  --secondary: #2563eb;
+  --hover: #1e40af;
+  --card-bg: #ffffff;
+  --outline: #ffbf47;
+  --danger: #dc2626;
+  --button-bg: #003366;
+  --button-hover: #00509e;
+}
+
+body.dark {
+  --bg: #111827;
+  --text: #f9fafb;
+  --primary: #1f2937;
+  --secondary: #374151;
+  --hover: #374151;
+  --card-bg: #1e293b;
+  --outline: #93c5fd;
+  --danger: #dc2626;
+  --button-bg: #2563eb;
+  --button-hover: #3b82f6;
+}
+
 /* Base styles */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #f8fafc;
-  color: #1f2937;
+  background-color: var(--bg);
+  color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -21,8 +47,9 @@ body {
   border: 0;
 }
 
+/* Header & Navigation */
 .site-header {
-  background-color: #1e3a8a;
+  background-color: var(--primary);
   color: #ffffff;
   padding: 1rem 0;
   text-align: center;
@@ -31,7 +58,7 @@ body {
 }
 
 nav {
-  background-color: #2563eb;
+  background-color: var(--secondary);
 }
 
 nav ul {
@@ -53,20 +80,20 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:focus {
-  background-color: #1e40af;
+  background-color: var(--hover);
   outline: 2px solid #ffffff;
   outline-offset: -2px;
 }
 
-nav ul li a.active {
-  background-color: #1e3a8a;
-}
-
+/* Main Layout */
 main {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Banner */
 .banner {
   width: 100%;
   height: auto;
@@ -75,6 +102,7 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Inventory */
 .inventory-container {
   display: flex;
   flex-wrap: wrap;
@@ -83,14 +111,16 @@ main {
   padding: 2rem 0;
 }
 
-.inventory-item {
-  background: #ffffff;
+.inventory-item,
+li.inventory-item {
+  background: var(--card-bg);
   border: 1px solid #e2e8f0;
   padding: 1rem;
   border-radius: 10px;
   max-width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  color: var(--text);
 }
 
 .inventory-item:hover {
@@ -107,7 +137,7 @@ main {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: crimson;
+  background: var(--danger);
   color: #fff;
   padding: 0.3rem 0.6rem;
   font-size: 0.75rem;
@@ -115,6 +145,21 @@ main {
   border-radius: 4px;
 }
 
+/* Inventory Grid */
+ul.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+li.inventory-item a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* Forms */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -125,6 +170,7 @@ form label {
   font-weight: 600;
   display: block;
   margin-bottom: 0.25rem;
+  color: var(--text);
 }
 
 form input,
@@ -135,18 +181,27 @@ form textarea {
   border: 1px solid #cbd5e1;
   border-radius: 5px;
   font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text);
 }
 
 form input:focus,
 form textarea:focus {
-  border-color: #2563eb;
-  outline: 2px solid #2563eb;
+  border-color: var(--secondary);
+  outline: 2px solid var(--secondary);
   outline-offset: 2px;
+}
+
+form .error {
+  color: var(--danger);
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
 }
 
 form button {
   padding: 0.75rem 1.5rem;
-  background-color: #1e3a8a;
+  background-color: var(--primary);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -157,20 +212,46 @@ form button {
 
 form button:hover,
 form button:focus {
-  background-color: #1e40af;
+  background-color: var(--hover);
   outline: 2px solid #fff;
   outline-offset: -2px;
 }
 
+/* Footer */
 footer {
-  background-color: #1f2937;
+  background-color: var(--primary);
   color: #f1f5f9;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
 }
 
-/* Media query */
+/* Toggle Button */
+
+/* Buttons & Links */
+.button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--button-bg);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--button-hover);
+}
+
+/* Accessibility Focus Outline */
+a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid var(--outline);
+  outline-offset: 2px;
+}
+
+/* Responsive Navigation */
 @media screen and (min-width: 768px) {
   nav ul {
     flex-direction: row;
@@ -187,55 +268,14 @@ footer {
   }
 }
 
-/* Dark mode styles */
-body.dark {
-  background-color: #111827;
-  color: #f9fafb;
-}
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
-body.dark .site-header,
-body.dark nav,
-body.dark footer {
-  background-color: #1f2937;
-}
-
-body.dark nav ul li a {
-  color: #f9fafb;
-}
-
-body.dark nav ul li a:hover {
-  background-color: #374151;
-}
-
-body.dark input,
-body.dark textarea {
-  background-color: #1f2937;
-  color: #f9fafb;
-  border: 1px solid #4b5563;
-}
-
-/* Toggle button */
-.dark-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: #f1f5f9;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.dark-toggle:hover {
-  transform: scale(1.05);
-}
-
-body.dark .dark-toggle {
-  background: #374151;
-  color: #f9fafb;
+  header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
 }

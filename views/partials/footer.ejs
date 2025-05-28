@@ -1,11 +1,10 @@
-<footer role="contentinfo">
   <p>&copy; <span id="year"></span> CSE Motors. All rights reserved.</p>
 
+  <p><a href="/trigger500" class="button" aria-label="Trigger a test server error">Trigger Server Error</a></p>
+
   <script>
-    // Auto-update year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Dark Mode Toggle Logic
     const toggle = document.getElementById("theme-toggle");
 
     // Load theme from localStorage on page load
@@ -21,4 +20,4 @@
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   </script>
-</footer>
+

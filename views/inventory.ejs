@@ -1,20 +1,16 @@
-<main>
+<main role="main">
   <h1>Our Inventory</h1>
-  <p>Explore our top-quality vehicles:</p>
 
-  <div class="inventory-container">
-    <div class="inventory-item">
-      <span class="badge">New</span>
-      <img src="/public/images/corolla1.png" alt="2021 Toyota Corolla">
-      <h3>2021 Toyota Corolla</h3>
-      <p>₦6,500,000 – Excellent condition, low mileage.</p>
-    </div>
-
-    <div class="inventory-item">
-      <span class="badge">Hot</span>
-      <img src="/public/images/accord1.png" alt="2020 Honda Accord">
-      <h3>2020 Honda Accord</h3>
-      <p>₦7,200,000 – Smooth drive, leather interior.</p>
-    </div>
-  </div>
+  <ul class="inventory-grid">
+    <% items.forEach(item => { %>
+      <li class="inventory-item">
+        <h2><%= item.year %> <%= item.make %> <%= item.model %></h2>
+        <p><strong>Price:</strong> $<%= item.price.toLocaleString() %></p>
+        <p><strong>Mileage:</strong> <%= item.mileage.toLocaleString() %> miles</p>
+        <p><strong>Color:</strong> <%= item.color %></p>
+        <a class="button" href="/inventory/detail/<%= item.id %>">View Details</a>
+      </li>
+    <% }) %>
+  </ul>
 </main>
+

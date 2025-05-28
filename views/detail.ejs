@@ -1,0 +1,16 @@
+<main role="main">
+  <article aria-labelledby="vehicle-title" class="vehicle-detail">
+    <h1 id="vehicle-title"><%= item.year %> <%= item.make %> <%= item.model %></h1>
+
+    <section class="vehicle-info">
+      <p><strong>Price:</strong> $<%= item.price.toLocaleString() %></p>
+      <p><strong>Color:</strong> <%= item.color %></p>
+      <p><strong>Mileage:</strong> <%= item.mileage.toLocaleString() %> miles</p>
+      <p><strong>Transmission:</strong> <%= item.transmission || 'N/A' %></p>
+      <p><strong>Fuel Type:</strong> <%= item.fuelType || 'N/A' %></p>
+      <p><strong>Description:</strong> <%= item.description || 'No additional details available.' %></p>
+    </section>
+
+    <a class="button" href="/inventory">Back to Inventory</a>
+  </article>
+</main>
